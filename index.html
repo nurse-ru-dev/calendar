@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ปฏิทินจองห้อง LRC</title>
+  <link rel="stylesheet" href="style.css?v=20260616-1" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="ตราคณะพยาบาลศาสตร์ มหาวิทยาลัยรามคำแหง" />
+      <div>
+        <h1>ปฏิทินจองห้อง LRC</h1>
+        <p>Faculty of Nursing, Ramkhamhaeng University</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="page-header">
+      <div>
+        <h2>ปฏิทินจองห้อง LRC</h2>
+        <p class="muted">ดูตารางใช้ห้อง แยกสีตามสถานะ และกดรายการเพื่อดูรายละเอียด</p>
+      </div>
+      <button class="btn secondary" id="loadCalendarBtn" type="button">รีเฟรช</button>
+    </section>
+
+    <section class="calendar-card" aria-label="ปฏิทินจองห้อง LRC">
+      <div class="calendar-toolbar">
+        <div class="calendar-nav-actions">
+          <button class="btn ghost" id="calendarPrevBtn" type="button">ก่อนหน้า</button>
+          <button class="btn ghost" id="calendarTodayBtn" type="button">วันนี้</button>
+          <button class="btn ghost" id="calendarNextBtn" type="button">ถัดไป</button>
+        </div>
+        <h3 id="calendarTitle">-</h3>
+        <div class="calendar-view-actions">
+          <button class="btn secondary active" id="monthViewBtn" type="button">เดือน</button>
+          <button class="btn ghost" id="weekViewBtn" type="button">สัปดาห์</button>
+        </div>
+      </div>
+
+      <div class="calendar-legend">
+        <span><i class="legend-dot approved"></i> อนุมัติ/จองแล้ว</span>
+        <span><i class="legend-dot pending"></i> รออนุมัติ</span>
+        <span><i class="legend-dot other"></i> อื่น ๆ</span>
+      </div>
+
+      <div class="calendar-room-filter">
+        <label for="calendarRoomFilter">กรองห้อง</label>
+        <select id="calendarRoomFilter">
+          <option value="">ทุกห้อง</option>
+        </select>
+      </div>
+
+      <div class="alert" id="calendarAlert" role="alert" hidden></div>
+      <div class="calendar-shell" id="calendarShell"></div>
+      <div class="empty-state" id="calendarEmpty" hidden>ไม่มีรายการจองในช่วงนี้</div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="bookingDetailModal" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bookingDetailTitle">
+      <div class="modal-header">
+        <div>
+          <h2 id="bookingDetailTitle">รายละเอียดการจอง</h2>
+          <p class="muted" id="bookingDetailSubtitle"></p>
+        </div>
+        <button class="btn ghost" id="closeDetailModalBtn" type="button">ปิด</button>
+      </div>
+      <div class="detail-grid" id="bookingDetailContent"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <footer class="app-footer">
+    &copy; 2026 Faculty of Nursing, Ramkhamhaeng University | Developed by Lect. Siyathorn Ponjaroenpaisarn
+  </footer>
+
+  <script src="script.js?v=20260616-1"></script>
+</body>
+</html>
